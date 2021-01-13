@@ -3,6 +3,7 @@ import './App.css';
 import Login from './components/Login';
 import React from 'react';
 import Order from './components/Order';
+import Summary from './components/Summary';
 
 class App extends React.Component {
   constructor(props) {
