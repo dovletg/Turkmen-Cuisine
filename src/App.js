@@ -2,6 +2,7 @@ import logo from './images.jpeg';
 import './App.css';
 import Login from './components/Login';
 import React from 'react';
+import Order from './components/Order';
 
 class App extends React.Component {
   constructor(props) {
@@ -9,11 +10,20 @@ class App extends React.Component {
     this.state ={
       username:'',
       password:'',
+      patty:'',
+      amount:'',
+      doneness:'',
+      topping:'',
+      cheese:'',
+      bun:'',
+      sauce:'',
+      extra:'',
       loggedIn:false
     };
     this.usercheck = this.usercheck.bind(this);
     this.setUserName = this.setUserName.bind(this);
     this.setPassword = this.setPassword.bind(this);
+    this.setInput = this.setInput.bind(this);
   }
 
   usercheck() {
@@ -38,11 +48,18 @@ class App extends React.Component {
     })
   }
 
-  render(){
+  setInput(property, value) {
+    this.setState({
+      [property]: value
+    })
+  }
 
-    let currComponent = <div></div>;
+  render(){
+    console.log(this.state);
+
+    let currComponent;  //= <div></div>;
     if(this.state.loggedIn) {
-      currComponent = <h1>You are successfully logged in</h1>
+      currComponent = <Order inputFunction={this.setInput}/>
     } else {
       currComponent = <Login userName={this.setUserName} UserPassword={this.setPassword} checkUser={this.usercheck}/>
     }
