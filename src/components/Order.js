@@ -76,7 +76,7 @@ function Order(props) {
 
       <hr/>
       <section className="submission">
-        <input type="submit" defaultValue="Submit"  onChange={handleInput}/>
+        <input type="submit" defaultValue="Submit" onClick={props.setComplete}/>  
       </section>
     </form>
   )
